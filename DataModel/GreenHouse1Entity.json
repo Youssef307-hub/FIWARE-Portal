@@ -1,0 +1,67 @@
+{
+    "id": "urn:ngsi-ld:Greenhouse:001",
+    "type": "Greenhouse",
+    "name": {
+      "type": "Text",
+      "value": "GreenHouse 1"
+    },
+    "dateCreated": "2022-06-01",
+    "description": {
+      "type": "Text",
+      "value": "GreenHouse 1 with a specific crop"
+    },
+    "location": {
+      "type": "geo:json",
+      "value": {
+        "type": "Point",
+        "coordinates": [ 14.12, 55.22 ]
+      }
+    },
+    "address": {
+      "type": "Property",
+      "value": {
+        "type": "PostalAddress",
+        "addressLocality": "Ismalia",
+        "addressCountry": "EG",
+        "streetAddress": "Street 123"
+      }
+    },
+    "Humidity":{
+      "type":"Property",
+      "value": 0.4,
+      "maxValue":0.8
+    },
+    "Temperature":{
+      "type":"Property",
+      "value": 23,
+      "maxValue": 35 
+    },
+    "co2":{
+      "type":"Property",
+      "value":25,
+      "maxValue":40
+    },
+    "dailyLight":{
+      "type":"Property",
+      "value": 22,
+      "minValue": 10
+    },
+    "soilMoisture": {
+      "type":"Property",
+      "value": 33,
+      "minValue": 25
+    },
+    "hasDevice": {
+      "type":"Relationship",
+      "object":
+      [ "urn:ngsi-ld:TempratureSensor:001",
+        "urn:ngsi-ld:HumditySensor:001",
+        "urn:ngsi-ld:Co2Sensor:001",
+        "urn:ngsi-ld:DailyLightSensor:001",
+        "urn:ngsi-ld:SoilMoistureSensor:001",
+        "urn:ngsi-ld:SprinklesActuator:001",
+        "urn:ngsi-ld:AlarmBellActuator:001",
+        "urn:ngsi-ld:LightActuator:001"
+      ]
+    }
+  }

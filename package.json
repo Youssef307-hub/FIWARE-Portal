@@ -5,16 +5,21 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "bootstrap": "^5.1.3",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
-    "jquery": "^2.1.0"
+    "iotagent-node-lib": "^2.21.0",
+    "jquery": "^2.1.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.18"
+    "ngsi_v2": "^0.2.1",
+    "nodemon": "^1.3.3"
   }
 }

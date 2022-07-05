@@ -1,0 +1,62 @@
+{
+    "id": "urn:ngsi-ld:Greenhouse:002",
+    "type": "Greenhouse",
+    "name": {
+      "type": "Text",
+      "value": "GreenHouse 2"
+    },
+    "dateCreated": "2022-07-01",
+    "description": {
+        "type": "Text",
+        "value": "GreenHouse 2 with a specific crop"
+      },
+    "location": {
+      "type": "geo:json",
+      "value": {
+        "type": "Point",
+        "coordinates": [ 18.12, 68.22 ]
+      }
+    },
+    "address": {
+      "type": "Property",
+      "value": {
+        "type": "PostalAddress",
+        "addressLocality": "Fayoum",
+        "addressCountry": "EG",
+        "streetAddress": "Street 456"
+      }
+    },
+    "Humidity":{
+      "value": 0.4,
+      "maxValue":0.8
+    },
+    "Temperature":{
+      "value": 23,
+      "maxValue": 35 
+    },
+    "co2":{
+      "value":25,
+      "maxValue":40
+    },
+    "dailyLight":{
+      "value": 22,
+      "minValue": 10
+    },
+    "soilMoisture": {
+      "value": 33,
+      "minValue": 25
+    },
+    "hasDevice": {
+      "type":"Relationship",
+      "object":
+      [ "urn:ngsi-ld:TempratureSensor:002",
+        "urn:ngsi-ld:HumditySensor:002",
+        "urn:ngsi-ld:Co2Sensor:002",
+        "urn:ngsi-ld:DailyLightSensor:002",
+        "urn:ngsi-ld:SoilMoistureSensor:002",
+        "urn:ngsi-ld:SprinklesActuator:002",
+        "urn:ngsi-ld:AlarmBellActuator:002",
+        "urn:ngsi-ld:LightActuator:002"
+      ]
+    }
+  }
