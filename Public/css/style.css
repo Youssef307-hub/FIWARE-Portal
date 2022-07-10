@@ -133,34 +133,14 @@ body {
   }
 }
 
-a.main-stroked-button {
-  font-size: 13px;
-  border-radius: 25px;
-  padding: 11px 25px;
-  background-color: transparent;
-  border: 2px solid #fff;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 1px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
-a.main-stroked-button:hover {
-  background-color: #fff;
-  color: #5fb759;
-}
-
 a.main-filled-button {
   font-size: 13px;
   border-radius: 25px;
   padding: 13px 25px;
-  background-color: #fff;
+  background-color: #5fb759;
   text-transform: uppercase;
-  color: #5fb759;
+  text-align: center;
+  color: #fff;
   font-weight: 600;
   letter-spacing: 1px;
   -webkit-transition: all 0.3s ease 0s;
@@ -168,18 +148,14 @@ a.main-filled-button {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-
-a.main-filled-button:hover {
-  color: #fff;
-  background-color: #5fb759;
-}
-
-a.main-button-icon {
+button.main-filled-button {
   font-size: 13px;
   border-radius: 25px;
+  border-color: transparent;
   padding: 13px 25px;
   background-color: #5fb759;
   text-transform: uppercase;
+  text-align: center;
   color: #fff;
   font-weight: 600;
   letter-spacing: 1px;
@@ -189,98 +165,20 @@ a.main-button-icon {
   transition: all 0.3s ease 0s;
 }
 
-a.main-button-icon i {
-  margin-left: 5px;
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  -o-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
+button.main-filled-button:hover {
+  color: #000;
+  background-color: #7dcd77;
 }
-
-a.main-button-icon:hover i {
-  padding-left: 5px;
-}
-
-button.main-button {
-  outline: none;
-  border: none;
-  cursor: pointer;
-  font-size: 13px;
-  border-radius: 25px;
-  padding: 10px 25px;
-  background-color: #fff;
-  text-transform: uppercase;
+a.main-filled-button:hover {
   color: #5fb759;
-  font-weight: 600;
-  letter-spacing: 1px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  background-color: #fff;
 }
+
 
 button.main-button:hover {
   color: #fff;
   background-color: #5fb759;
 }
-
-button.main-button-icon {
-  border: none;
-  outline: none;
-  font-size: 13px;
-  border-radius: 25px;
-  padding: 13px 25px;
-  background-color: #5fb759;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 1px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
-button.main-button-icon i {
-  margin-left: 5px;
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  -o-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-button.main-button-icon:hover i {
-  padding-left: 5px;
-}
-
-a.text-button-icon {
-  text-transform: uppercase;
-  color: #1e1e1e;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
-a.text-button-icon i {
-  margin-left: 5px;
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  -o-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-a.text-button-icon:hover {
-  color: #5fb759;
-}
-
-a.text-button-icon:hover i {
-  padding-left: 5px;
-}
-
 
 .section-heading h6 {
   font-size: 15px;
@@ -626,25 +524,24 @@ contact
   margin-bottom: 50px;
 }
 
-#contact-us .section-heading h6 {
+#contact-us .section-heading h4 {
   color: #5fb759;
 }
 
-#contact-us .left-text-content ul li {
-  margin-bottom: 30px;
-}
-
-#contact-us .left-text-content ul li {
-  font-size: 14px;
+#contact-us .container-content ul li {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 25px;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
-#contact-us .left-text-content ul li img {
-  margin-right: 15px;
+#contact-us .container-content ul img {
+  margin: 20px;
 }
 
 #contact-us {
+  text-align: center;
   padding: 120px 0px;
   background-image: url(../images/dotted-map-bg.png);
   background-position: center center;
@@ -665,9 +562,10 @@ footer {
   padding: 50px 0px;
   background: rgb(51,155,158);
   background: linear-gradient(145deg, rgba(51,155,158,1) 0%, rgba(104,204,152,1) 100%);
+  text-align: center;
 }
 
-footer .content p {
+footer .container-footer p {
   color: #fff;
   font-size: 25px;
   display: inline;
@@ -687,6 +585,37 @@ footer .content p {
 Green houses
 --------------------------------------------- 
 */
+#firstInfo, #secondInfo{
+  margin-top: 20px;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  border: 2px solid #5fb759;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 25px;
+}
+
+#firstInfo h4{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #5fb759;
+  display: inline;
+  font-weight: bold;
+}
+
+#secondInfo h4{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #5fb759;
+  display: inline;
+  font-weight: bold;
+}
+
+.section-info{
+  text-align: center;
+}
 
 #greenhouse1 .filters-content {
   margin-top: 20px;
@@ -773,6 +702,7 @@ Green houses
   display: inline;
   color: red;
   font-size: 23px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 @media (max-width: 992px) {

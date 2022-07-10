@@ -28,7 +28,7 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
+                        <ul class="nav" id="navbar__list">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#greenhouse1">GreenHouse1</a></li>
                             <li class="scroll-to-section"><a href="#greenhouse2">GreenHouse2</a></li>
@@ -62,7 +62,12 @@
     <!-- ***** Green House 1 Starts ***** -->
     <section class="section" id="greenhouse1">
       <div class="container">
-        <h1 style="text-align:center;">Green House 1</h1>
+        <div class="section-info">
+          <h1>Green House 1</h1>
+          <button class="main-filled-button" id="getInfo1">Show Information</button>
+          <button class="main-filled-button" id="hideInfo1" style="margin-left: 25px">Hide Information</button>
+          <div id="info1"></div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="filters-content">
@@ -72,35 +77,35 @@
                           <div class="item">
                             <h3>Temprature Sensor</h3>
                             <img src="images/weather.png" alt="">
-                            <h3>Sensor reading: <p>24</p><span>&#8451</span></h3>
+                            <h3>Sensor reading: <p id="t1">Warm-up</p><span> &#8451</span></h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                           <div class="item">
                             <h3>Humdity Sensor</h3>
                             <img src="images/humdity.jpg" alt="">
-                            <h3>Sensor reading: <p></p></h3>
+                            <h3>Sensor reading: <p id="h1">Warm-up</p> %</h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all gra">
                           <div class="item">
                             <h3>CO<sub>2</sub> Sensor</h3>
                             <img src="images/CO2.jpg" alt="">
-                            <h3>Sensor reading: <p>22</p></h3>
+                            <h3>Sensor reading: <p id="c1">Warm-up</p> Micro Mol</h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all tsh">
                           <div class="item">
                             <h3>Daily Light Sensor</h3>
                             <img src="images/dailylight.jpg" alt="">
-                            <h3>Sensor reading: <p></p></h3>
+                            <h3>Sensor reading: <p id="l1">Warm-up</p> PAR</h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                           <div class="item">
                             <h3>Soil Moisture Sensor</h3>
                             <img src="images/soil.jpg" alt="">
-                            <h3>Sensor reading: <p>15</p></h3>
+                            <h3>Sensor reading: <p id="sm1">Warm-up</p> mm</h3>
                           </div>
                         </div>
                     </div>
@@ -146,7 +151,12 @@
     <!-- ***** Green House 2 Starts ***** -->
     <section class="section" id="greenhouse2">
         <div class="container">
-          <h1 style="text-align:center;">Green House 2</h1>
+          <div class="section-info">
+            <h1>Green House 2</h1>
+            <button class="main-filled-button" id="getInfo2">Show Information</button>
+            <button class="main-filled-button" id="hideInfo2" style="margin-left: 25px">Hide Information</button>
+            <div id="info2"></div>
+          </div>
           <div class="row">
               <div class="col-lg-12">
                   <div class="filters-content">
@@ -156,35 +166,35 @@
                             <div class="item">
                               <h3>Temprature Sensor</h3>
                               <img src="images/weather.png" alt="">
-                              <h3>Sensor reading: <p>32</p><span>&#8451</span></h3>
+                              <h3>Sensor reading: <p id="t2">Warm-up</p><span> &#8451</span></h3>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                             <div class="item">
                               <h3>Humdity Sensor</h3>
                               <img src="images/humdity.jpg" alt="">
-                              <h3>Sensor reading: <p></p></h3>
+                              <h3>Sensor reading: <p id="h2">Warm-up</p> %</h3>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all gra">
                             <div class="item">
                               <h3>CO<sub>2</sub> Sensor</h3>
                               <img src="images/CO2.jpg" alt="">
-                              <h3>Sensor reading: <p>26</p></h3>
+                              <h3>Sensor reading: <p id="c2">Warm-up</p> Micro Mol</h3>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all tsh">
                             <div class="item">
                               <h3>Daily Light Sensor</h3>
                               <img src="images/dailylight.jpg" alt="">
-                              <h3>Sensor reading: <p></p></h3>
+                              <h3>Sensor reading: <p id="l2">Warm-up</p> PAR</h3>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                             <div class="item">
                               <h3>Soil Moisture Sensor</h3>
                               <img src="images/soil.jpg" alt="">
-                              <h3>Sensor reading: <p></p></h3>
+                              <h3>Sensor reading: <p id="sm2">Warm-up</p> mm</h3>
                             </div>
                           </div>
                       </div>
@@ -229,49 +239,30 @@
     
     <!-- ***** Contact Us Area Starts ***** -->
     <section class="section" id="contact-us">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="left-text-content">
-                        <div class="section-heading">
-                            <h6>Contact Us</h6>
-                            <h2>Feel free to keep in touch with us!</h2>
-                        </div>
-                        <ul class="contact-info">
-                            <li><img src="images/contact-info-01.png" alt="">010-020-0860</li>
-                            <li><img src="images/contact-info-02.png" alt="">info@company.com</li>
-                            <li><img src="images/contact-info-03.png" alt="">www.company.com</li>
-                        </ul>
-                    </div>
+        <div class="container-content">
+                <div class="section-heading">
+                    <h4>Contact Us</h4>
+                    <h2>Feel free to keep in touch with us!</h2>
                 </div>
-            </div>
+                  <ul class="contact-info">
+                    <img src="images/contact-info-01.png" alt=""><li>010-020-0860</li>
+                    <img src="images/contact-info-02.png" alt=""><li>info@GreenHouses.com</li>
+                    <img src="images/contact-info-03.png" alt=""><li>www.GreenHousesManagement.com</li>
+                  </ul>
         </div>
     </section>
     <!-- ***** Contact Us Area Ends ***** -->
     
     <!-- ***** Footer Start ***** -->
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="content">
-                    <p>Powerd by </p><img src="images/logo_FIWARE-Header.png">
-                </div>
-            </div>
+        <div class="container-footer">
+            <p>Powerd by </p><img src="images/logo_FIWARE-Header.png">
         </div>
     </footer>
     
 
-    <!-- jQuery -->
-    <script src="js/jquery-2.1.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="js/scrollreveal.min.js"></script>
-    
-    
-    <!-- Global Init -->
+    <!-- Scripts -->
+    <script src="js/client.js"></script>
     <script src="js/main.js"></script>
 
   </body>

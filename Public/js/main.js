@@ -1,86 +1,37 @@
-(function ($) {
-  "use strict";
+const sections = document.querySelectorAll('section');
 
-  $(window).scroll(function () {
-    var scroll = $(window).scrollTop();
-    var box = $(".header-text").height();
-    var header = $("header").height();
+const navBar = document.getElementById('navbar__list');
 
-    if (scroll >= box - header) {
-      $("header").addClass("background-header");
-    } else {
-      $("header").removeClass("background-header");
-    }
-  });
-
-  // Window Resize Mobile Menu Fix
-  mobileNav();
-
-  // Scroll animation init
-  window.sr = new scrollReveal();
-
-  $(document).ready(function () {
-    $(document).on("scroll", onScroll);
-
-    //smoothscroll
-    $('a[href^="#"]').on("click", function (e) {
-      e.preventDefault();
-      $(document).off("scroll");
-
-      $("a").each(function () {
-        $(this).removeClass("active");
-      });
-      $(this).addClass("active");
-
-      var target = this.hash,
-        menu = target;
-      var target = $(this.hash);
-      $("html, body")
-        .stop()
-        .animate(
-          {
-            scrollTop: target.offset().top - 79,
-          },
-          500,
-          "swing",
-          function () {
-            window.location.hash = target;
-            $(document).on("scroll", onScroll);
+function activeSection() {
+  document.addEventListener('scroll', function () {
+      var scrollPos = $(document).scrollTop();
+      sections.forEach(function (section) {
+          const position = section.getBoundingClientRect();
+          if ((position.top >= 0 && position.top <= scrollPos)) {
+              section.classList.add("active");
+          } else {
+              section.classList.remove("active");
           }
-        );
-    });
-  });
+      })
+  })
+}
 
-  function onScroll(event) {
-    var scrollPos = $(document).scrollTop();
-    $(".nav a").each(function () {
-      var currLink = $(this);
-      var refElement = $(currLink.attr("href"));
-      if (
-        refElement.position().top <= scrollPos &&
-        refElement.position().top + refElement.height() > scrollPos
-      ) {
-        $(".nav ul li a").removeClass("active");
-        currLink.addClass("active");
-      } else {
-        currLink.removeClass("active");
+function scrollToSection() {
+
+  const activeLinks = document.getElementsByClassName("active");
+  
+      navBar.addEventListener('click', function (e) {
+          sections.forEach(function (section) { 
+              const targetSection = document.getElementById(e.target.getAttribute('data-id'))
+              targetSection.scrollIntoView({ behavior: "smooth" }) 
+      })
+      if(activeLinks.length > 0){
+          activeLinks[0].classList.remove('active');
       }
-    });
-  }
+      e.target.classList.add('active');
+  })
+}
 
-  // Window Resize Mobile Menu Fix
-  $(window).on("resize", function () {
-    mobileNav();
-  });
+scrollToSection();
 
-  // Window Resize Mobile Menu Fix
-  function mobileNav() {
-    var width = $(window).width();
-    $(".submenu").on("click", function () {
-      if (width < 767) {
-        $(".submenu ul").removeClass("active");
-        $(this).find("ul").toggleClass("active");
-      }
-    });
-  }
-})(window.jQuery);
+activeSection();
