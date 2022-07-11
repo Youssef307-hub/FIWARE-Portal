@@ -801,6 +801,7 @@ Green houses
   display: inline;
   color: red;
   font-size: 23px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 @media (max-width: 992px) {

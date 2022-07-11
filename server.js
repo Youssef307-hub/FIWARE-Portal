@@ -51,13 +51,10 @@ const changeDeviceMeasurement = (deviceId, payload) =>
         body: JSON.stringify(payload),
     })
     .then((res) => {
-        if (res.ok) {
-            return res.json();
-        } else {
-            throw new Error(res.statusText);
+        if (res.status !== 204) {
+            throw new Error("Couldn't update");
         }
-    })
-    .then((data) => data);
+    });
 
 function generateRandom(min, max) {
     let difference = max - min;
@@ -71,6 +68,14 @@ function generateRandom(min, max) {
 setInterval(async() => {
     const value = generateRandom(445, 655)
     await changeDeviceMeasurement('soilmoisture001', {sm: value})
+    if(value < 460){
+        await changeActuatorState("urn:ngsi-ld:Sprinkle:001", {
+            "on": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
@@ -79,41 +84,119 @@ setInterval(async() => {
 }, 5000)
 
 setInterval(async() => {
-    const value = generateRandom(20, 40)
+    const value = generateRandom(10, 40)
     await changeDeviceMeasurement('temperature001', {t: value})
+    if(value < 15){
+        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+            "ring": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
-    const value = generateRandom(20, 40)
+    const value = generateRandom(10, 40)
     await changeDeviceMeasurement('temperature002', {t: value})
+    if(value < 15){
+        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+            "ring": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
-    const value = generateRandom(70, 85)
+    const value = generateRandom(60, 85)
     await changeDeviceMeasurement('humidity001', {h: value})
+    if(value < 65){
+        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+            "ring": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
-    const value = generateRandom(70, 85)
+    const value = generateRandom(60, 85)
     await changeDeviceMeasurement('humidity002', {h: value})
+    if(value < 65){
+        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+            "ring": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
     const value = generateRandom(1385, 1685)
     await changeDeviceMeasurement('light001', {l: value})
+    if(value < 1450){
+        await changeActuatorState("urn:ngsi-ld:Lamp:001", {
+            "on": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Lamp:001", {
+            "off": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
     const value = generateRandom(1385, 1685)
     await changeDeviceMeasurement('light002', {l: value})
+    if(value < 1450){
+        await changeActuatorState("urn:ngsi-ld:Lamp:002", {
+            "on": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Lamp:002", {
+            "off": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
     const value = generateRandom(395, 705)
     await changeDeviceMeasurement('co2001', {c: value})
+    if(value < 450){
+        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+            "ring": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
     const value = generateRandom(395, 705)
     await changeDeviceMeasurement('co2002', {c: value})
+    if(value < 450){
+        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+            "ring": {
+                "type": "command",
+                "value": ""
+            }
+        })
+    }
 }, 5000)
