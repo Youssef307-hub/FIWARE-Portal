@@ -16,18 +16,33 @@ app.use("/css", express.static(path.join(__dirname, "node_modules/bootstrap/dist
 app.use("/js",express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
 app.use("/js",express.static(path.join(__dirname, "node_modules/jquery/dist")));
 
-router.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname + "/index.html"));
-});
+router.get("/", function(req, res) { res.sendFile(path.join(__dirname + "/index.html"))});
 
-const myServer = app.listen(port, () => {
-    console.log(`The app is listening on port: ${port}`);
-});
+const myServer = app.listen(port, () => {console.log(`The app is listening on port: ${port}`);});
 
 
 const changeDeviceMeasurement = (deviceId, payload) =>
     fetch(`http://localhost:7896/iot/json?k=${API_KEY}&i=${deviceId}`, {
         method: "POST",
+        headers: {
+            "fiware-service": "openiot",
+            "fiware-servicepath": "/",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+    })
+    .then((res) => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            throw new Error(res.statusText);
+        }
+    })
+    .then((data) => data);
+
+    const changeActuatorState = (ActuatorID, payload) =>
+    fetch(`http://localhost:1026/v2/entities/${encodeURIComponent(ActuatorID)}/attrs`, {
+        method: "PATCH",
         headers: {
             "fiware-service": "openiot",
             "fiware-servicepath": "/",
