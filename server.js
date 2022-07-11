@@ -12,18 +12,9 @@ app.use(bodyParser.json());
 const API_KEY = "4jggokgpepnvsb2uv4s40d59ov";
 app.use("/", router);
 
-app.use(
-    "/css",
-    express.static(path.join(__dirname, "node_modules/bootstrap/dist/css"))
-);
-app.use(
-    "/js",
-    express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
-);
-app.use(
-    "/js",
-    express.static(path.join(__dirname, "node_modules/jquery/dist/cdn"))
-);
+app.use("/css", express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")));
+app.use("/js",express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
+app.use("/js",express.static(path.join(__dirname, "node_modules/jquery/dist")));
 
 router.get("/", function(req, res) {
     res.sendFile(path.join(__dirname + "/index.html"));
