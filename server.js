@@ -69,10 +69,25 @@ setInterval(async() => {
     const value = generateRandom(445, 655)
     await changeDeviceMeasurement('soilmoisture001', {sm: value})
     if(value < 460){
-        await changeActuatorState("urn:ngsi-ld:Sprinkle:001", {
+        await changeActuatorState("urn:ngsi-ld:Sprinkler:001", {
             "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Sprinkler:001", {
+            "off": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }
@@ -81,6 +96,29 @@ setInterval(async() => {
 setInterval(async() => {
     const value = generateRandom(445, 655)
     await changeDeviceMeasurement('soilmoisture002', {sm: value})
+    if(value < 460){
+        await changeActuatorState("urn:ngsi-ld:Sprinkler:002", {
+            "on": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Sprinkler:002", {
+            "off": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
+            }
+        })
+    }
 }, 5000)
 
 setInterval(async() => {
@@ -88,9 +126,24 @@ setInterval(async() => {
     await changeDeviceMeasurement('temperature001', {t: value})
     if(value < 15){
         await changeActuatorState("urn:ngsi-ld:Bell:001", {
-            "ring": {
+            "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "ON"
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+            "off": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }
@@ -101,9 +154,24 @@ setInterval(async() => {
     await changeDeviceMeasurement('temperature002', {t: value})
     if(value < 15){
         await changeActuatorState("urn:ngsi-ld:Bell:002", {
-            "ring": {
+            "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "ON"
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+            "off": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }
@@ -114,9 +182,24 @@ setInterval(async() => {
     await changeDeviceMeasurement('humidity001', {h: value})
     if(value < 65){
         await changeActuatorState("urn:ngsi-ld:Bell:001", {
-            "ring": {
+            "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "ON"
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+            "off": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }
@@ -127,9 +210,24 @@ setInterval(async() => {
     await changeDeviceMeasurement('humidity002', {h: value})
     if(value < 65){
         await changeActuatorState("urn:ngsi-ld:Bell:002", {
-            "ring": {
+            "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "ON"
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+            "off": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }
@@ -143,6 +241,10 @@ setInterval(async() => {
             "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "ON"
             }
         })
     }else{
@@ -150,6 +252,10 @@ setInterval(async() => {
             "off": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }
@@ -163,6 +269,10 @@ setInterval(async() => {
             "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "ON"
             }
         })
     }else{
@@ -170,6 +280,10 @@ setInterval(async() => {
             "off": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }
@@ -180,9 +294,24 @@ setInterval(async() => {
     await changeDeviceMeasurement('co2001', {c: value})
     if(value < 450){
         await changeActuatorState("urn:ngsi-ld:Bell:001", {
-            "ring": {
+            "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "ON"
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+            "off": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }
@@ -193,9 +322,24 @@ setInterval(async() => {
     await changeDeviceMeasurement('co2002', {c: value})
     if(value < 450){
         await changeActuatorState("urn:ngsi-ld:Bell:002", {
-            "ring": {
+            "on": {
                 "type": "command",
                 "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "ON"
+            }
+        })
+    }else{
+        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+            "off": {
+                "type": "command",
+                "value": ""
+            },
+            "state":{
+                "type":"Text",
+                "value": "OFF"
             }
         })
     }

@@ -68,7 +68,7 @@ const getActuatorState = (ActuatorID) => {
                 throw new Error(res.statusText);
             }
         })
-        .then((data) => data['state'])
+        .then((data) => data)
 
     ;
 }
@@ -123,108 +123,75 @@ async function myFunction2() {
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:SoilMoisture:001");
     document.getElementById("sm1").innerHTML = data;
-    if(data < 460){
-        document.getElementById("sprinkle1").innerHTML = "ON";
-    }else{
-        document.getElementById("sprinkle1").innerHTML = "OFF";
-    }
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Sprinkler:001");
+    document.getElementById("sprinkler1").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:SoilMoisture:002");
     document.getElementById("sm2").innerHTML = data;
-    if(data < 460){
-        document.getElementById("sprinkle2").innerHTML = "ON";
-    }else{
-        document.getElementById("sprinkle2").innerHTML = "OFF";
-    }
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Sprinkler:001");
+    document.getElementById("sprinkler2").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Humidity:001");
     document.getElementById("h1").innerHTML = data;
-    if(data < 65){
-        document.getElementById("bell1").innerHTML = `ON <span>Humidity Sensor</span>`;
-    }else{
-        document.getElementById("bell1").innerHTML = `OFF`;
-        document.getElementById("alert1").innerHTML = `<span>WARM-UP</span>`;
-    }
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:001");
+    document.getElementById("bell1").innerHTML = ActuatorData['state'];
+    document.getElementById("alert1").innerHTML = "Humidity Sensor"
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Humidity:002");
     document.getElementById("h2").innerHTML = data;
-    if(data < 65){
-        document.getElementById("bell2").innerHTML = `ON`;
-        document.getElementById("alert2").innerHTML = `<span>Humidity Sensor</span>`;
-    }else{
-        document.getElementById("bell2").innerHTML = `OFF`;
-        document.getElementById("alert2").innerHTML = `<span>WARM-UP</span>`;
-    }
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:002");
+    document.getElementById("bell2").innerHTML = ActuatorData['state'];
+    document.getElementById("alert2").innerHTML = "Humidity Sensor"
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Temperature:001");
     document.getElementById("t1").innerHTML = data;
-    if(data < 15){
-        document.getElementById("bell1").innerHTML = `ON`;
-        document.getElementById("alert1").innerHTML = `<span>Temprature Sensor</span>`;
-    }else{
-        document.getElementById("bell1").innerHTML = `OFF`;
-        document.getElementById("alert1").innerHTML = `<span>WARM-UP</span>`;
-
-    }
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:001");
+    document.getElementById("bell1").innerHTML = ActuatorData['state'];
+    document.getElementById("alert1").innerHTML = "Temperature Sensor"
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Temperature:002");
     document.getElementById("t2").innerHTML = data;
-    if(data < 15){
-        document.getElementById("bell2").innerHTML = `ON`;
-        document.getElementById("alert2").innerHTML = `<span>Temprature Sensor</span>`;
-    }else{
-        document.getElementById("bell2").innerHTML = `OFF`;
-        document.getElementById("alert2").innerHTML = `<span>WARM-UP</span>`;
-
-    }
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:002");
+    document.getElementById("bell2").innerHTML = ActuatorData['state'];
+    document.getElementById("alert2").innerHTML = "Temperature Sensor"
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Light:001");
     document.getElementById("l1").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:Lamp:001");
-    document.getElementById("lamp1").innerHTML = ActuatorData;
+    document.getElementById("lamp1").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Light:002");
     document.getElementById("l2").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:Lamp:002");
-    document.getElementById("lamp2").innerHTML = ActuatorData;
+    document.getElementById("lamp2").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:CO2:001");
     document.getElementById("c1").innerHTML = data;
-    if(data < 450){
-        document.getElementById("bell1").innerHTML = `ON`;
-        document.getElementById("alert1").innerHTML = `<span>CO<sub>2</sub> Sensor</span>`;
-    }else{
-        document.getElementById("bell1").innerHTML = `OFF`;
-        document.getElementById("alert1").innerHTML = `<span>WARM-UP</span>`;
-
-    }
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:001");
+    document.getElementById("bell1").innerHTML = ActuatorData['state'];
+    document.getElementById("alert1").innerHTML = `CO<sub>2</sub> Sensor`;
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:CO2:002");
     document.getElementById("c2").innerHTML = data;
-    if(data < 450){
-        document.getElementById("bell2").innerHTML = `ON`;
-        document.getElementById("alert2").innerHTML = `<span>CO<sub>2</sub> Sensor</span>`;
-    }else{
-        document.getElementById("bell2").innerHTML = `OFF`;
-        document.getElementById("alert2").innerHTML = `<span>WARM-UP</span>`;
-
-    }
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:002");
+    document.getElementById("bell2").innerHTML = ActuatorData['state'];
+    document.getElementById("alert2").innerHTML = `CO<sub>2</sub> Sensor`;
 }, 5000)
