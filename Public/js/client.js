@@ -137,33 +137,29 @@ setInterval(async() => {
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Humidity:001");
     document.getElementById("h1").innerHTML = data;
-    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:001");
-    document.getElementById("bell1").innerHTML = ActuatorData['state'];
-    document.getElementById("alert1").innerHTML = "Humidity Sensor"
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:HumidityBell:001");
+    document.getElementById("humiditybell1").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Humidity:002");
     document.getElementById("h2").innerHTML = data;
-    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:002");
-    document.getElementById("bell2").innerHTML = ActuatorData['state'];
-    document.getElementById("alert2").innerHTML = "Humidity Sensor"
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:HumidityBell:002");
+    document.getElementById("humiditybell2").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Temperature:001");
     document.getElementById("t1").innerHTML = data;
-    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:001");
-    document.getElementById("bell1").innerHTML = ActuatorData['state'];
-    document.getElementById("alert1").innerHTML = "Temperature Sensor"
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:TempBell:001");
+    document.getElementById("tempbell1").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:Temperature:002");
     document.getElementById("t2").innerHTML = data;
-    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:002");
-    document.getElementById("bell2").innerHTML = ActuatorData['state'];
-    document.getElementById("alert2").innerHTML = "Temperature Sensor"
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:TempBell:002");
+    document.getElementById("tempbell2").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
@@ -183,15 +179,13 @@ setInterval(async() => {
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:CO2:001");
     document.getElementById("c1").innerHTML = data;
-    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:001");
-    document.getElementById("bell1").innerHTML = ActuatorData['state'];
-    document.getElementById("alert1").innerHTML = `CO<sub>2</sub> Sensor`;
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:CO2Bell:001");
+    document.getElementById("co2bell1").innerHTML = ActuatorData['state'];
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:CO2:002");
     document.getElementById("c2").innerHTML = data;
-    const ActuatorData = await getActuatorState("urn:ngsi-ld:Bell:002");
-    document.getElementById("bell2").innerHTML = ActuatorData['state'];
-    document.getElementById("alert2").innerHTML = `CO<sub>2</sub> Sensor`;
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:CO2Bell:002");
+    document.getElementById("co2bell2").innerHTML = ActuatorData['state'];
 }, 5000)

@@ -76,7 +76,7 @@ setInterval(async() => {
             },
             "state":{
                 "type":"Text",
-                "value": "OFF"
+                "value": "ON"
             }
         })
     }else{
@@ -104,7 +104,7 @@ setInterval(async() => {
             },
             "state":{
                 "type":"Text",
-                "value": "OFF"
+                "value": "ON"
             }
         })
     }else{
@@ -125,7 +125,7 @@ setInterval(async() => {
     const value = generateRandom(10, 40)
     await changeDeviceMeasurement('temperature001', {t: value})
     if(value < 15){
-        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+        await changeActuatorState("urn:ngsi-ld:TempBell:001", {
             "on": {
                 "type": "command",
                 "value": ""
@@ -136,7 +136,7 @@ setInterval(async() => {
             }
         })
     }else{
-        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+        await changeActuatorState("urn:ngsi-ld:TempBell:001", {
             "off": {
                 "type": "command",
                 "value": ""
@@ -153,7 +153,7 @@ setInterval(async() => {
     const value = generateRandom(10, 40)
     await changeDeviceMeasurement('temperature002', {t: value})
     if(value < 15){
-        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+        await changeActuatorState("urn:ngsi-ld:TempBell:002", {
             "on": {
                 "type": "command",
                 "value": ""
@@ -164,7 +164,7 @@ setInterval(async() => {
             }
         })
     }else{
-        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+        await changeActuatorState("urn:ngsi-ld:TempBell:002", {
             "off": {
                 "type": "command",
                 "value": ""
@@ -181,7 +181,7 @@ setInterval(async() => {
     const value = generateRandom(60, 85)
     await changeDeviceMeasurement('humidity001', {h: value})
     if(value < 65){
-        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+        await changeActuatorState("urn:ngsi-ld:HumidityBell:001", {
             "on": {
                 "type": "command",
                 "value": ""
@@ -192,7 +192,7 @@ setInterval(async() => {
             }
         })
     }else{
-        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+        await changeActuatorState("urn:ngsi-ld:HumidityBell:001", {
             "off": {
                 "type": "command",
                 "value": ""
@@ -209,7 +209,7 @@ setInterval(async() => {
     const value = generateRandom(60, 85)
     await changeDeviceMeasurement('humidity002', {h: value})
     if(value < 65){
-        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+        await changeActuatorState("urn:ngsi-ld:HumidityBell:002", {
             "on": {
                 "type": "command",
                 "value": ""
@@ -220,7 +220,7 @@ setInterval(async() => {
             }
         })
     }else{
-        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+        await changeActuatorState("urn:ngsi-ld:HumidityBell:002", {
             "off": {
                 "type": "command",
                 "value": ""
@@ -293,7 +293,7 @@ setInterval(async() => {
     const value = generateRandom(395, 705)
     await changeDeviceMeasurement('co2001', {c: value})
     if(value < 450){
-        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+        await changeActuatorState("urn:ngsi-ld:CO2Bell:001", {
             "on": {
                 "type": "command",
                 "value": ""
@@ -304,7 +304,7 @@ setInterval(async() => {
             }
         })
     }else{
-        await changeActuatorState("urn:ngsi-ld:Bell:001", {
+        await changeActuatorState("urn:ngsi-ld:CO2Bell:001", {
             "off": {
                 "type": "command",
                 "value": ""
@@ -321,7 +321,7 @@ setInterval(async() => {
     const value = generateRandom(395, 705)
     await changeDeviceMeasurement('co2002', {c: value})
     if(value < 450){
-        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+        await changeActuatorState("urn:ngsi-ld:CO2Bell:002", {
             "on": {
                 "type": "command",
                 "value": ""
@@ -332,7 +332,7 @@ setInterval(async() => {
             }
         })
     }else{
-        await changeActuatorState("urn:ngsi-ld:Bell:002", {
+        await changeActuatorState("urn:ngsi-ld:CO2Bell:002", {
             "off": {
                 "type": "command",
                 "value": ""
