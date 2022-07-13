@@ -316,8 +316,8 @@ curl -iX POST \
   -d '{
   "devices": [
         {
-            "device_id": "bell001",
-            "entity_name": "urn:ngsi-ld:Bell:001",
+            "device_id": "tempbell001",
+            "entity_name": "urn:ngsi-ld:TempBell:001",
             "entity_type": "Bell",
             "protocol": "PDI-IoTA-UltraLight",
             "transport": "HTTP",
@@ -347,8 +347,132 @@ curl -iX POST \
             ]
         },
         {
-            "device_id": "bell002",
-            "entity_name": "urn:ngsi-ld:Bell:002",
+            "device_id": "tempbell002",
+            "entity_name": "urn:ngsi-ld:TempBell:002",
+            "entity_type": "Bell",
+            "protocol": "PDI-IoTA-UltraLight",
+            "transport": "HTTP",
+            "commands": [
+                {
+                    "name": "on",
+                    "type": "command"
+                },
+                {
+                    "name": "off",
+                    "type": "command"
+                }
+            ],
+            "attributes": [
+                {
+                    "object_id": "s",
+                    "name": "state",
+                    "type": "Text"
+                }
+            ],
+            "static_attributes": [
+                {
+                    "name": "refAgrihouse",
+                    "type": "Relationship",
+                    "value": "urn:ngsi-ld:Greenhouse:002"
+                }
+            ]
+        },
+        {
+            "device_id": "humiditybell001",
+            "entity_name": "urn:ngsi-ld:HumidityBell:001",
+            "entity_type": "Bell",
+            "protocol": "PDI-IoTA-UltraLight",
+            "transport": "HTTP",
+            "commands": [
+                {
+                    "name": "on",
+                    "type": "command"
+                },
+                {
+                    "name": "off",
+                    "type": "command"
+                }
+            ],
+            "attributes": [
+                {
+                    "object_id": "s",
+                    "name": "state",
+                    "type": "Text"
+                }
+            ],
+            "static_attributes": [
+                {
+                    "name": "refAgrihouse",
+                    "type": "Relationship",
+                    "value": "urn:ngsi-ld:Greenhouse:001"
+                }
+            ]
+        },
+        {
+            "device_id": "humiditybell002",
+            "entity_name": "urn:ngsi-ld:HumidityBell:002",
+            "entity_type": "Bell",
+            "protocol": "PDI-IoTA-UltraLight",
+            "transport": "HTTP",
+            "commands": [
+                {
+                    "name": "on",
+                    "type": "command"
+                },
+                {
+                    "name": "off",
+                    "type": "command"
+                }
+            ],
+            "attributes": [
+                {
+                    "object_id": "s",
+                    "name": "state",
+                    "type": "Text"
+                }
+            ],
+            "static_attributes": [
+                {
+                    "name": "refAgrihouse",
+                    "type": "Relationship",
+                    "value": "urn:ngsi-ld:Greenhouse:002"
+                }
+            ]
+        },
+        {
+            "device_id": "co2bell001",
+            "entity_name": "urn:ngsi-ld:CO2Bell:001",
+            "entity_type": "Bell",
+            "protocol": "PDI-IoTA-UltraLight",
+            "transport": "HTTP",
+            "commands": [
+                {
+                    "name": "on",
+                    "type": "command"
+                },
+                {
+                    "name": "off",
+                    "type": "command"
+                }
+            ],
+            "attributes": [
+                {
+                    "object_id": "s",
+                    "name": "state",
+                    "type": "Text"
+                }
+            ],
+            "static_attributes": [
+                {
+                    "name": "refAgrihouse",
+                    "type": "Relationship",
+                    "value": "urn:ngsi-ld:Greenhouse:001"
+                }
+            ]
+        },
+        {
+            "device_id": "co2bell002",
+            "entity_name": "urn:ngsi-ld:CO2Bell:002",
             "entity_type": "Bell",
             "protocol": "PDI-IoTA-UltraLight",
             "transport": "HTTP",
