@@ -125,13 +125,25 @@ setInterval(async() => {
     document.getElementById("sm1").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:Sprinkler:001");
     document.getElementById("sprinkler1").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("sprinklericon1").innerHTML = `<img src="images/sprinkler-on.png" alt="" style="width:150px; height:150px"></img>`;
+        document.getElementById("timeSprinkler1").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+     }else{
+         document.getElementById("sprinklericon1").innerHTML = `<img src="images/sprinkler.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)
 
 setInterval(async() => {
     const data = await getDeviceReading("urn:ngsi-ld:SoilMoisture:002");
     document.getElementById("sm2").innerHTML = data;
-    const ActuatorData = await getActuatorState("urn:ngsi-ld:Sprinkler:001");
+    const ActuatorData = await getActuatorState("urn:ngsi-ld:Sprinkler:002");
     document.getElementById("sprinkler2").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("sprinklericon2").innerHTML = `<img src="images/sprinkler-on.png" alt="" style="width:150px; height:150px"></img>`;
+        document.getElementById("timeSprinkler2").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+     }else{
+         document.getElementById("sprinklericon2").innerHTML = `<img src="images/sprinkler.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)
 
 setInterval(async() => {
@@ -139,6 +151,13 @@ setInterval(async() => {
     document.getElementById("h1").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:HumidityBell:001");
     document.getElementById("humiditybell1").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("hbell1").innerHTML = `<img src="images/bell.gif" alt="" style="width:150px; height:150px"></img>
+        <audio autoplay><source src="images/bell.mp3" type="audio/mpeg"></audio>`;
+        document.getElementById("timeHumiditybell1").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+     }else{
+         document.getElementById("hbell1").innerHTML = `<img src="images/bell.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)
 
 setInterval(async() => {
@@ -146,6 +165,13 @@ setInterval(async() => {
     document.getElementById("h2").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:HumidityBell:002");
     document.getElementById("humiditybell2").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("hbell2").innerHTML = `<img src="images/bell.gif" alt="" style="width:150px; height:150px"></img>
+        <audio autoplay><source src="images/bell.mp3" type="audio/mpeg"></audio>`;
+        document.getElementById("timeHumiditybell2").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+     }else{
+         document.getElementById("hbell2").innerHTML = `<img src="images/bell.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)
 
 setInterval(async() => {
@@ -153,6 +179,14 @@ setInterval(async() => {
     document.getElementById("t1").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:TempBell:001");
     document.getElementById("tempbell1").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("tbell1").innerHTML = `<img src="images/bell.gif" alt="" style="width:150px; height:150px"></img>
+        <audio autoplay><source src="images/bell.mp3" type="audio/mpeg"></audio>`;
+        document.getElementById("timeTempbell1").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+
+     }else{
+         document.getElementById("tbell1").innerHTML = `<img src="images/bell.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)
 
 setInterval(async() => {
@@ -160,6 +194,13 @@ setInterval(async() => {
     document.getElementById("t2").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:TempBell:002");
     document.getElementById("tempbell2").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("tbell2").innerHTML = `<img src="images/bell.gif" alt="" style="width:150px; height:150px"></img>
+        <audio autoplay><source src="images/bell.mp3" type="audio/mpeg"></audio>`;
+        document.getElementById("timeTempbell2").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+     }else{
+         document.getElementById("tbell2").innerHTML = `<img src="images/bell.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)
 
 setInterval(async() => {
@@ -167,6 +208,12 @@ setInterval(async() => {
     document.getElementById("l1").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:Lamp:001");
     document.getElementById("lamp1").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+       document.getElementById("lampicon1").innerHTML = `<img src="images/lamp-on.png" alt="" style="width:150px; height:150px"></img>`;
+       document.getElementById("timeLamp1").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+    }else{
+        document.getElementById("lampicon1").innerHTML = `<img src="images/lamp.png" alt="" style="width:150px; height:150px"></img>`;
+    }
 }, 5000)
 
 setInterval(async() => {
@@ -174,6 +221,12 @@ setInterval(async() => {
     document.getElementById("l2").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:Lamp:002");
     document.getElementById("lamp2").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("lampicon2").innerHTML = `<img src="images/lamp-on.png" alt="" style="width:150px; height:150px"></img>`;
+        document.getElementById("timeLamp2").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+     }else{
+         document.getElementById("lampicon2").innerHTML = `<img src="images/lamp.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)
 
 setInterval(async() => {
@@ -181,6 +234,13 @@ setInterval(async() => {
     document.getElementById("c1").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:CO2Bell:001");
     document.getElementById("co2bell1").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("cbell1").innerHTML = `<img src="images/bell.gif" alt="" style="width:150px; height:150px"></img>
+        <audio autoplay><source src="images/bell.mp3" type="audio/mpeg"></audio>`;
+        document.getElementById("timeCO2bell1").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+     }else{
+         document.getElementById("cbell1").innerHTML = `<img src="images/bell.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)
 
 setInterval(async() => {
@@ -188,4 +248,11 @@ setInterval(async() => {
     document.getElementById("c2").innerHTML = data;
     const ActuatorData = await getActuatorState("urn:ngsi-ld:CO2Bell:002");
     document.getElementById("co2bell2").innerHTML = ActuatorData['state'];
+    if(ActuatorData['state'] === "ON"){
+        document.getElementById("cbell2").innerHTML = `<img src="images/bell.gif" alt="" style="width:150px; height:150px"></img>
+        <audio autoplay><source src="images/bell.mp3" type="audio/mpeg"></audio>`;
+        document.getElementById("timeCO2bell2").innerHTML = `<br>${ActuatorData['TimeInstant']}`;
+     }else{
+         document.getElementById("cbell2").innerHTML = `<img src="images/bell.png" alt="" style="width:150px; height:150px"></img>`;
+     }
 }, 5000)

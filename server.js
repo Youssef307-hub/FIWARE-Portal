@@ -68,7 +68,7 @@ function generateRandom(min, max) {
 setInterval(async() => {
     const value = generateRandom(445, 655)
     await changeDeviceMeasurement('soilmoisture001', {sm: value})
-    if(value < 460){
+    if(value < 560){
         await changeActuatorState("urn:ngsi-ld:Sprinkler:001", {
             "on": {
                 "type": "command",
@@ -96,7 +96,7 @@ setInterval(async() => {
 setInterval(async() => {
     const value = generateRandom(445, 655)
     await changeDeviceMeasurement('soilmoisture002', {sm: value})
-    if(value < 460){
+    if(value < 560){
         await changeActuatorState("urn:ngsi-ld:Sprinkler:002", {
             "on": {
                 "type": "command",

@@ -585,6 +585,7 @@ footer .container-footer p {
 Green houses
 --------------------------------------------- 
 */
+
 #firstInfo, #secondInfo{
   margin-top: 20px;
   width: 100%;
@@ -693,9 +694,9 @@ Green houses
 }
 
 #greenhouse1 img{
-  width: 350px;
+  width: 290px;
   height: 250px;
-  border-radius: 3px;
+  border-radius: 8px;
 }
 
 #greenhouse1 p{
@@ -792,9 +793,9 @@ Green houses
 }
 
 #greenhouse2 img{
-  width: 350px;
+  width: 290px;
   height: 250px;
-  border-radius: 3px;
+  border-radius: 8px;
 }
 
 #greenhouse2 p{

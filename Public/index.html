@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <title>Smart GreenHouse</title>
+    <link rel="icon" href="images/logo.png" type="image/icon type">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -72,10 +73,10 @@
             <div class="col-lg-12">
                 <div class="filters-content">
                     <h2>Sensors:</h2>
-                    <div class="row grid">
+                    <div class="row grid justify-content-md-center">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all des">
                           <div class="item">
-                            <h3>Temprature Sensor</h3>
+                            <h3>Temperature Sensor</h3>
                             <img src="images/weather.png" alt="" id="getInfoT1">
                             <h3>Sensor reading: <p id="t1">Warm-up</p><span> &#8451</span></h3>
                             <div id="infoT1"></div>
@@ -83,7 +84,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                           <div class="item">
-                            <h3>Humdity Sensor</h3>
+                            <h3>Humidity Sensor</h3>
                             <img src="images/humdity.jpg" alt="">
                             <h3>Sensor reading: <p id="h1">Warm-up</p> %</h3>
                           </div>
@@ -95,14 +96,14 @@
                             <h3>Sensor reading: <p id="c1">Warm-up</p> Micro Mol</h3>
                           </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all tsh">
+                        <div class="col-lg-4 col-md-8 col-sm-6 col-xs-12 all tsh">
                           <div class="item">
                             <h3>Daily Light Sensor</h3>
                             <img src="images/dailylight.jpg" alt="">
                             <h3>Sensor reading: <p id="l1">Warm-up</p> PAR</h3>
                           </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
+                        <div class="col-lg-4 col-md-8 col-sm-6 col-xs-12 all dev">
                           <div class="item">
                             <h3>Soil Moisture Sensor</h3>
                             <img src="images/soil.jpg" alt="">
@@ -117,41 +118,56 @@
             <div class="col-lg-12">
                 <div class="filters-content">
                   <h2>Actuators: </h2>
-                    <div class="row grid">
+                    <div class="row grid justify-content-md-center">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                           <div class="item">
                             <h3>Temperatue Alert System</h3>
-                            <img src="images/bell.jpg" alt="">
+                            <div id="tbell1">
+                              <img src="images/bell.png" alt="" style="width:150px; height:150px">
+                            </div>
                             <h3>Actuator State: <p id="tempbell1">OFF</p></h3>
+                            <h3>Last Activity: <p id="timeTempbell1">Not Activated Yet</p></h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                           <div class="item">
                             <h3>Humidity Alert System</h3>
-                            <img src="images/bell.jpg" alt="">
+                            <div id="hbell1">
+                              <img src="images/bell.png" alt="" style="width:150px; height:150px">
+                            </div>
                             <h3>Actuator State: <p id="humiditybell1">OFF</p></h3>
+                            <h3>Last Activity: <p id="timeHumiditybell1">Not Activated Yet</p></h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                           <div class="item">
                             <h3>CO<sub>2</sub> Alert System</h3>
-                            <img src="images/bell.jpg" alt="">
+                            <div id="cbell1">
+                              <img src="images/bell.png" alt="" style="width:150px; height:150px">
+                            </div>
                             <h3>Actuator State: <p id="co2bell1">OFF</p></h3>
-                          </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all des">
-                          <div class="item">
-                            <h3>Sprinkler</h3>
-                            <img src="images/sprinkles.jpg" alt="">
-                            <h3>Actuator State: <p id="sprinkler1">OFF</p></h3>
+                            <h3>Last Activity: <p id="timeCO2bell1">Not Activated Yet</p></h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
-                            <div class="item">
-                              <h3>Light</h3>
-                              <img src="images/light.jpg" alt="">
-                              <h3>Actuator State: <p id="lamp1">OFF</p></h3>
+                          <div class="item">
+                            <h3>Smart Lamp</h3>
+                            <div id="lampicon1">
+                              <img src="images/lamp.png" alt="" style="width:150px; height:150px"></img>
                             </div>
+                            <h3>Actuator State: <p id="lamp1">OFF</p></h3>
+                            <h3>Last Activity: <p id="timeLamp1">Not Activated Yet</p></h3>
+                          </div>
+                      </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all des">
+                          <div class="item">
+                            <h3>Sprinkler</h3>
+                            <div id="sprinklericon1">
+                              <img src="images/sprinkler.png" alt="" style="width:150px; height:150px"></img>
+                            </div>
+                            <h3>Actuator State: <p id="sprinkler1">OFF</p></h3>
+                            <h3>Last Activity: <p id="timeSprinkler1">Not Activated Yet</p></h3>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -174,17 +190,17 @@
               <div class="col-lg-12">
                   <div class="filters-content">
                     <h2>Sensors:</h2>
-                      <div class="row grid">
+                      <div class="row grid justify-content-md-center">
                           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all des">
                             <div class="item">
-                              <h3>Temprature Sensor</h3>
+                              <h3>Temperature Sensor</h3>
                               <img src="images/weather.png" alt="">
                               <h3>Sensor reading: <p id="t2">Warm-up</p><span> &#8451</span></h3>
                             </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                             <div class="item">
-                              <h3>Humdity Sensor</h3>
+                              <h3>Humidity Sensor</h3>
                               <img src="images/humdity.jpg" alt="">
                               <h3>Sensor reading: <p id="h2">Warm-up</p> %</h3>
                             </div>
@@ -218,42 +234,57 @@
             <div class="col-lg-12">
                 <div class="filters-content">
                   <h2>Actuators: </h2>
-                    <div class="row grid">
+                    <div class="row grid justify-content-md-center">
                       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                         <div class="item">
                           <h3>Temperature Alert System</h3>
-                          <img src="images/bell.jpg" alt="">
+                          <div id="tbell2">
+                            <img src="images/bell.png" alt="" style="width:150px; height:150px">
+                          </div>
                           <h3>Actuator State: <p id="tempbell2">OFF</p></h3>
+                          <h3>Last Activity: <p id="timeTempbell2">Not Activated Yet</p></h3>
                         </div>
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                         <div class="item">
                           <h3>Humidity Alert System</h3>
-                          <img src="images/bell.jpg" alt="">
+                          <div id="hbell2">
+                            <img src="images/bell.png" alt="" style="width:150px; height:150px">
+                          </div>
                           <h3>Actuator State: <p id="humiditybell2">OFF</p></h3>
+                          <h3>Last Activity: <p id="timeHumiditybell2">Not Activated Yet</p></h3>
                         </div>
                       </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
                           <div class="item">
                             <h3>CO<sub>2</sub> System</h3>
-                            <img src="images/bell.jpg" alt="">
+                            <div id="cbell2">
+                              <img src="images/bell.png" alt="" style="width:150px; height:150px">
+                            </div>
                             <h3>Actuator State: <p id="co2bell2">OFF</p></h3>
+                            <h3>Last Activity: <p id="timeCO2bell2">Not Activated Yet</p></h3>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
+                          <div class="item">
+                            <h3>Smart Lamp</h3>
+                            <div id="lampicon2">
+                              <img src="images/lamp.png" alt="" style="width:150px; height:150px"></img>
+                            </div>
+                            <h3>Actuator State: <p id="lamp2">OFF</p></h3>
+                            <h3>Last Activity: <p id="timeLamp2">Not Activated Yet</p></h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all des">
                           <div class="item">
                             <h3>Sprinkler</h3>
-                            <img src="images/sprinkles.jpg" alt="">
+                            <div id="sprinklericon2">
+                              <img src="images/sprinkler.png" alt="" style="width:150px; height:150px"></img>
+                            </div>
                             <h3>Actuator State: <p id="sprinkler2">OFF</p></h3>
+                            <h3>Last Activity: <p id="timeSprinkler2">Not Activated Yet</p></h3>
                           </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
-                            <div class="item">
-                              <h3>Light</h3>
-                              <img src="images/light.jpg" alt="">
-                              <h3>Actuator State: <p id="lamp2">OFF</p></h3>
-                            </div>
-                          </div>
                         </div>
                     </div>
                 </div>
