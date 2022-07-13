@@ -1,0 +1,185 @@
+#!/bin/bash
+#
+#  curl commands to reload the data from the previous tutorial
+#
+#
+
+set -e
+
+printf "⏳ Loading context data "
+
+
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "Lamp Commands",
+    "dataProvided": {
+        "entities": [
+            {
+                "id": "urn:ngsi-ld:Lamp:001",
+                "type": "Lamp"
+            }
+        ],
+        "attrs": [
+            "on",
+            "off"
+        ]
+    },
+    "provider": {
+        "http": {
+            "url": "http://orion:1026/v1"
+        },
+        "legacyForwarding": true
+    }
+}'
+
+
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "Lamp Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:Lamp:002",
+                        "type": "Lamp"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+
+
+#
+# Create Registerations for Bells
+#
+#
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "Bell Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:Bell:001",
+                        "type": "Bell"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "Bell Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:Bell:002",
+                        "type": "Bell"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+#
+# Create Registerations for Sprinklers
+#
+#
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "Sprinkler Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:Sprinkler:001",
+                        "type": "Sprinkler"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "Sprinkler Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:Sprinkler:002",
+                        "type": "Sprinkler"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+        echo -e " \033[1;32mdone\033[0m"

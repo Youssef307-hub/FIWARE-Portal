@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "7fa72863-6baf-4d17-becc-7814cd5cc67f",
+		"name": "GP Steps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19683076"
+	},
+	"item": [
+		{
+			"name": "Create 2 Greenhouses entities",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"actionType\": \"APPEND\",\r\n    \"entities\": [\r\n        {\r\n            \"id\": \"urn:ngsi-ld:Greenhouse:001\",\r\n            \"type\": \"Greenhouse\",\r\n            \"name\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"GreenHouse:001\"\r\n            },\r\n            \"description\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"GreenHouse 1 with a specific crop\"\r\n            },\r\n            \"address\": {\r\n                \"type\": \"Property\",\r\n                \"value\": {\r\n                    \"type\": \"PostalAddress\",\r\n                    \"addressLocality\": \"Ismalia\",\r\n                    \"addressCountry\": \"EG\",\r\n                    \"streetAddress\": \"Street 123\"\r\n                }\r\n            },\r\n            \"location\": {\r\n                \"type\": \"geo:json\",\r\n                \"value\": {\r\n                    \"type\": \"Point\",\r\n                    \"coordinates\": [\r\n                        14.12,\r\n                        55.22\r\n                    ]\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"urn:ngsi-ld:Greenhouse:002\",\r\n            \"type\": \"Greenhouse\",\r\n            \"name\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"GreenHouse 2\"\r\n            },\r\n            \"description\": {\r\n                \"type\": \"Text\",\r\n                \"value\": \"GreenHouse 2 with a specific crop\"\r\n            },\r\n            \"address\": {\r\n                \"type\": \"Property\",\r\n                \"value\": {\r\n                    \"type\": \"PostalAddress\",\r\n                    \"addressLocality\": \"Fayoum\",\r\n                    \"addressCountry\": \"EG\",\r\n                    \"streetAddress\": \"Street 456\"\r\n                }\r\n            },\r\n            \"location\": {\r\n                \"type\": \"geo:json\",\r\n                \"value\": {\r\n                    \"type\": \"Point\",\r\n                    \"coordinates\": [\r\n                        24.12,\r\n                        65.22\r\n                    ]\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://{{orion}}/v2/op/update",
+					"protocol": "http",
+					"host": [
+						"{{orion}}"
+					],
+					"path": [
+						"v2",
+						"op",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Greenhouses entities",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{orion}}/v2/entities/",
+					"protocol": "http",
+					"host": [
+						"{{orion}}"
+					],
+					"path": [
+						"v2",
+						"entities",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Service group",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"services\": [\r\n   {\r\n     \"apikey\":      \"4jggokgpepnvsb2uv4s40d59ov\",\r\n     \"cbroker\":     \"http://orion:1026\",\r\n     \"entity_type\": \"Thing\",\r\n     \"resource\":    \"/iot/json\"\r\n   }\r\n ]\r\n}"
+				},
+				"url": {
+					"raw": "http://{{iot-agent}}/iot/services",
+					"protocol": "http",
+					"host": [
+						"{{iot-agent}}"
+					],
+					"path": [
+						"iot",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a series of Sensors",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"devices\": [\r\n        {\r\n            \"device_id\": \"soilmoisture001\",\r\n            \"entity_name\": \"urn:ngsi-ld:SoilMoisture:001\",\r\n            \"entity_type\": \"SoilMoisture\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"sm\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:001\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"soilmoisture002\",\r\n            \"entity_name\": \"urn:ngsi-ld:SoilMoisture:002\",\r\n            \"entity_type\": \"SoilMoisture\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"sm\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"temperature001\",\r\n            \"entity_name\": \"urn:ngsi-ld:Temperature:001\",\r\n            \"entity_type\": \"Temperature\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"t\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:001\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"temperature002\",\r\n            \"entity_name\": \"urn:ngsi-ld:Temperature:002\",\r\n            \"entity_type\": \"Temperature\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"t\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"humidity001\",\r\n            \"entity_name\": \"urn:ngsi-ld:Humidity:001\",\r\n            \"entity_type\": \"Humidity\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"h\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:001\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"humidity002\",\r\n            \"entity_name\": \"urn:ngsi-ld:Humidity:002\",\r\n            \"entity_type\": \"Humidity\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"h\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"light001\",\r\n            \"entity_name\": \"urn:ngsi-ld:Light:001\",\r\n            \"entity_type\": \"Light\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"l\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:001\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"light002\",\r\n            \"entity_name\": \"urn:ngsi-ld:Light:002\",\r\n            \"entity_type\": \"Light\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"l\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"co2001\",\r\n            \"entity_name\": \"urn:ngsi-ld:CO2:001\",\r\n            \"entity_type\": \"CO2\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"c\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:001\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"co2002\",\r\n            \"entity_name\": \"urn:ngsi-ld:CO2:002\",\r\n            \"entity_type\": \"CO2\",\r\n            \"attributes\": [\r\n                {\r\n                    \"object_id\": \"c\",\r\n                    \"name\": \"count\",\r\n                    \"type\": \"Integer\"\r\n                }\r\n            ],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refGreenhouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://{{iot-agent}}/iot/services",
+					"protocol": "http",
+					"host": [
+						"{{iot-agent}}"
+					],
+					"path": [
+						"iot",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a series of Actuators.",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"devices\": [\r\n        {\r\n            \"device_id\": \"bell001\",\r\n            \"entity_name\": \"urn:ngsi-ld:Bell:001\",\r\n            \"entity_type\": \"Bell\",\r\n            \"protocol\": \"PDI-IoTA-UltraLight\",\r\n            \"transport\": \"HTTP\",\r\n            \"commands\": [\r\n                {\r\n                    \"name\": \"on\",\r\n                    \"type\": \"command\"\r\n                },\r\n                {\r\n                    \"name\": \"off\",\r\n                    \"type\": \"command\"\r\n                }\r\n            ],\r\n            \"attributes\": [{\r\n                \"object_id\": \"s\",\r\n                \"name\": \"state\",\r\n                \"type\": \"Text\"\r\n            }],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refAgrihouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:001\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"bell002\",\r\n            \"entity_name\": \"urn:ngsi-ld:Bell:002\",\r\n            \"entity_type\": \"Bell\",\r\n            \"protocol\": \"PDI-IoTA-UltraLight\",\r\n            \"transport\": \"HTTP\",\r\n            \"commands\": [\r\n                {\r\n                    \"name\": \"on\",\r\n                    \"type\": \"command\"\r\n                },\r\n                {\r\n                    \"name\": \"off\",\r\n                    \"type\": \"command\"\r\n                }\r\n            ],\r\n            \"attributes\": [{\r\n                \"object_id\": \"s\",\r\n                \"name\": \"state\",\r\n                \"type\": \"Text\"\r\n            }],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refAgrihouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"sprinkler001\",\r\n            \"entity_name\": \"urn:ngsi-ld:Sprinkler:001\",\r\n            \"entity_type\": \"Sprinkler\",\r\n            \"protocol\": \"PDI-IoTA-UltraLight\",\r\n            \"transport\": \"HTTP\",\r\n            \"commands\": [\r\n                {\r\n                    \"name\": \"on\",\r\n                    \"type\": \"command\"\r\n                },\r\n                {\r\n                    \"name\": \"off\",\r\n                    \"type\": \"command\"\r\n                }\r\n            ],\r\n            \"attributes\": [{\r\n                \"object_id\": \"s\",\r\n                \"name\": \"state\",\r\n                \"type\": \"Text\"\r\n            }],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refAgrihouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:001\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"sprinkler002\",\r\n            \"entity_name\": \"urn:ngsi-ld:Sprinkler:002\",\r\n            \"entity_type\": \"Sprinkler\",\r\n            \"protocol\": \"PDI-IoTA-UltraLight\",\r\n            \"transport\": \"HTTP\",\r\n            \"commands\": [\r\n                {\r\n                    \"name\": \"on\",\r\n                    \"type\": \"command\"\r\n                },\r\n                {\r\n                    \"name\": \"off\",\r\n                    \"type\": \"command\"\r\n                }\r\n            ],\r\n            \"attributes\": [{\r\n                \"object_id\": \"s\",\r\n                \"name\": \"state\",\r\n                \"type\": \"Text\"\r\n            }],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refAgrihouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"lamp001\",\r\n            \"entity_name\": \"urn:ngsi-ld:Lamp:001\",\r\n            \"entity_type\": \"Lamp\",\r\n            \"protocol\": \"PDI-IoTA-UltraLight\",\r\n            \"transport\": \"HTTP\",\r\n            \"commands\": [\r\n                {\r\n                    \"name\": \"on\",\r\n                    \"type\": \"command\"\r\n                },\r\n                {\r\n                    \"name\": \"off\",\r\n                    \"type\": \"command\"\r\n                }\r\n            ],\r\n            \"attributes\": [{\r\n                \"object_id\": \"s\",\r\n                \"name\": \"state\",\r\n                \"type\": \"Text\"\r\n            }],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refAgrihouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"device_id\": \"lamp002\",\r\n            \"entity_name\": \"urn:ngsi-ld:Lamp:002\",\r\n            \"entity_type\": \"Lamp\",\r\n            \"protocol\": \"PDI-IoTA-UltraLight\",\r\n            \"transport\": \"HTTP\",\r\n            \"commands\": [\r\n                {\r\n                    \"name\": \"on\",\r\n                    \"type\": \"command\"\r\n                },\r\n                {\r\n                    \"name\": \"off\",\r\n                    \"type\": \"command\"\r\n                }\r\n            ],\r\n            \"attributes\": [{\r\n                \"object_id\": \"s\",\r\n                \"name\": \"state\",\r\n                \"type\": \"Text\"\r\n            }],\r\n            \"static_attributes\": [\r\n                {\r\n                    \"name\": \"refAgrihouse\",\r\n                    \"type\": \"Relationship\",\r\n                    \"value\": \"urn:ngsi-ld:Greenhouse:002\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://{{iot-agent}}/iot/devices",
+					"protocol": "http",
+					"host": [
+						"{{iot-agent}}"
+					],
+					"path": [
+						"iot",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check all devices connected",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{iot-agent}}/iot/devices/",
+					"protocol": "http",
+					"host": [
+						"{{iot-agent}}"
+					],
+					"path": [
+						"iot",
+						"devices",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Registerations",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"registerations\":[\r\n        {\r\n            \"description\": \"Lamp Commands\",\r\n            \"dataProvided\": {\r\n                \"entities\": [\r\n                    {\r\n                        \"id\": \"urn:ngsi-ld:Lamp:001\",\r\n                        \"type\": \"Lamp\"\r\n                    }\r\n                ],\r\n                \"attrs\": [\r\n                    \"on\",\r\n                    \"off\"\r\n                ]\r\n            },\r\n            \"provider\": {\r\n                \"http\": {\r\n                    \"url\": \"http://orion:1026/v1\"\r\n                },\r\n                \"legacyForwarding\": true\r\n            }\r\n        },\r\n        {\r\n            \"description\": \"Lamp Commands\",\r\n            \"dataProvided\": {\r\n                \"entities\": [\r\n                    {\r\n                        \"id\": \"urn:ngsi-ld:Lamp:002\",\r\n                        \"type\": \"Lamp\"\r\n                    }\r\n                ],\r\n                \"attrs\": [\r\n                    \"on\",\r\n                    \"off\"\r\n                ]\r\n            },\r\n            \"provider\": {\r\n                \"http\": {\r\n                    \"url\": \"http://orion:1026/v1\"\r\n                },\r\n                \"legacyForwarding\": true\r\n            }\r\n        },\r\n        {\r\n            \"description\": \"Bell Commands\",\r\n            \"dataProvided\": {\r\n                \"entities\": [\r\n                    {\r\n                        \"id\": \"urn:ngsi-ld:Bell:001\",\r\n                        \"type\": \"Bell\"\r\n                    }\r\n                ],\r\n                \"attrs\": [\r\n                    \"on\",\r\n                    \"off\"\r\n                ]\r\n            },\r\n            \"provider\": {\r\n                \"http\": {\r\n                    \"url\": \"http://orion:1026/v1\"\r\n                },\r\n                \"legacyForwarding\": true\r\n            }\r\n        },\r\n        {\r\n            \"description\": \"Bell Commands\",\r\n            \"dataProvided\": {\r\n                \"entities\": [\r\n                    {\r\n                        \"id\": \"urn:ngsi-ld:Bell:002\",\r\n                        \"type\": \"Bell\"\r\n                    }\r\n                ],\r\n                \"attrs\": [\r\n                    \"on\",\r\n                    \"off\"\r\n                ]\r\n            },\r\n            \"provider\": {\r\n                \"http\": {\r\n                    \"url\": \"http://orion:1026/v1\"\r\n                },\r\n                \"legacyForwarding\": true\r\n            }\r\n        },\r\n        {\r\n            \"description\": \"Sprinkler Commands\",\r\n            \"dataProvided\": {\r\n                \"entities\": [\r\n                    {\r\n                        \"id\": \"urn:ngsi-ld:Sprinkler:001\",\r\n                        \"type\": \"Sprinkler\"\r\n                    }\r\n                ],\r\n                \"attrs\": [\r\n                    \"on\",\r\n                    \"off\"\r\n                ]\r\n            },\r\n            \"provider\": {\r\n                \"http\": {\r\n                    \"url\": \"http://orion:1026/v1\"\r\n                },\r\n                \"legacyForwarding\": true\r\n            }\r\n        },\r\n        {\r\n            \"description\": \"Sprinkler Commands\",\r\n            \"dataProvided\": {\r\n                \"entities\": [\r\n                    {\r\n                        \"id\": \"urn:ngsi-ld:Sprinkler:002\",\r\n                        \"type\": \"Sprinkler\"\r\n                    }\r\n                ],\r\n                \"attrs\": [\r\n                    \"on\",\r\n                    \"off\"\r\n                ]\r\n            },\r\n            \"provider\": {\r\n                \"http\": {\r\n                    \"url\": \"http://orion:1026/v1\"\r\n                },\r\n                \"legacyForwarding\": true\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://{{orion}}/v2/registrations",
+					"protocol": "http",
+					"host": [
+						"{{orion}}"
+					],
+					"path": [
+						"v2",
+						"registrations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get actuator status",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{orion}}/v2/entities/urn:ngsi-ld:Lamp:001",
+					"protocol": "http",
+					"host": [
+						"{{orion}}"
+					],
+					"path": [
+						"v2",
+						"entities",
+						"urn:ngsi-ld:Lamp:001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Lamp state",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"on\": {\r\n      \"type\" : \"command\",\r\n      \"value\" : \"\"\r\n  },\r\n  \"state\":\r\n  {\r\n      \"type\" : \"Text\",\r\n      \"value\" : \"ON\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "http://{{orion}}/v2/entities/urn:ngsi-ld:Lamp:001/attrs",
+					"protocol": "http",
+					"host": [
+						"{{orion}}"
+					],
+					"path": [
+						"v2",
+						"entities",
+						"urn:ngsi-ld:Lamp:001",
+						"attrs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Bell state",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"on\": {\r\n      \"type\" : \"command\",\r\n      \"value\" : \"\"\r\n  },\r\n  \"state\":\r\n  {\r\n      \"type\" : \"Text\",\r\n      \"value\" : \"ON\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "http://{{orion}}/v2/entities/urn:ngsi-ld:Bell:001/attrs",
+					"protocol": "http",
+					"host": [
+						"{{orion}}"
+					],
+					"path": [
+						"v2",
+						"entities",
+						"urn:ngsi-ld:Bell:001",
+						"attrs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Sprinkler state",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"on\": {\r\n      \"type\" : \"command\",\r\n      \"value\" : \"\"\r\n  },\r\n  \"state\":\r\n  {\r\n      \"type\" : \"Text\",\r\n      \"value\" : \"ON\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "http://{{orion}}/v2/entities/urn:ngsi-ld:Sprinkler:001/attrs",
+					"protocol": "http",
+					"host": [
+						"{{orion}}"
+					],
+					"path": [
+						"v2",
+						"entities",
+						"urn:ngsi-ld:Sprinkler:001",
+						"attrs"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "orion",
+			"value": "localhost:1026"
+		},
+		{
+			"key": "iot-agent",
+			"value": "localhost:4041"
+		}
+	]
+}
