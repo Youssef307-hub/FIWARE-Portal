@@ -695,17 +695,74 @@ curl -iX POST \
 # Create Registerations for Bells
 #
 #
+
 curl -iX POST \
 'http://localhost:1026/v2/registrations' \
 -H 'Content-Type: application/json' \
 -H 'fiware-service: openiot' \
 -H 'fiware-servicepath: /' \
 -d '{
-    "description": "Bell Commands",
+    "description": "Temprature Bell Commands",
             "dataProvided": {
                 "entities": [
                     {
-                        "id": "urn:ngsi-ld:Bell:001",
+                        "id": "urn:ngsi-ld:TempBell:001",
+                        "type": "Bell"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "Temprature Bell Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:TempBell:002",
+                        "type": "Bell"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "Humidity Bell Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:HumidityBell:001",
                         "type": "Bell"
                     }
                 ],
@@ -728,11 +785,65 @@ curl -iX POST \
 -H 'fiware-service: openiot' \
 -H 'fiware-servicepath: /' \
 -d '{
-    "description": "Bell Commands",
+    "description": "Humidity Bell Commands",
             "dataProvided": {
                 "entities": [
                     {
-                        "id": "urn:ngsi-ld:Bell:002",
+                        "id": "urn:ngsi-ld:HumidityBell:002",
+                        "type": "Bell"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "CO2 Bell Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:CO2Bell:001",
+                        "type": "Bell"
+                    }
+                ],
+                "attrs": [
+                    "on",
+                    "off"
+                ]
+            },
+            "provider": {
+                "http": {
+                    "url": "http://orion:1026/v1"
+                },
+                "legacyForwarding": true
+            }
+        }'
+
+curl -iX POST \
+'http://localhost:1026/v2/registrations' \
+-H 'Content-Type: application/json' \
+-H 'fiware-service: openiot' \
+-H 'fiware-servicepath: /' \
+-d '{
+    "description": "CO2 Bell Commands",
+            "dataProvided": {
+                "entities": [
+                    {
+                        "id": "urn:ngsi-ld:CO2Bell:002",
                         "type": "Bell"
                     }
                 ],
